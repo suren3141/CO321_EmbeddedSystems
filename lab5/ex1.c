@@ -12,8 +12,8 @@ int main(void) {
 	TCCR0A |= (1 << COM0A1);			//Non inverting
 	TCCR0B = 0x03;//(1 << CS01) | (1 << CS00)	// 64 prescaler 
 
-	OCR0A = 0b011111111; 			//127(+1)
-	//OCR0A = 0xFF; 			//255(+1)
+	//OCR0A = 0b01111111; 			//127(+1)
+	OCR0A = 10; 			//255(+1)
 	sei();
 
 	while(1){};
