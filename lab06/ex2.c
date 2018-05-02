@@ -3,8 +3,8 @@
 
 
 int main(){
-	DDRB=DDRB| 0b1; // Now PORTB[0] is the output pin for bulb
-	DDRC=DDRC & ~(0b11); // Now PINC[0],PINC[1] are input
+	DDRB=DDRB| 1; // Now PORTB[0] is the output pin for bulb
+	DDRC=DDRC & ~1; // Now PINC[0] is input
 	
 	//ADMUX register
 	ADMUX=ADMUX & (~(1<<REFS0) & ~(1<<REFS1)); //Use the external reference AREF pin voltage instead of internal pin 
