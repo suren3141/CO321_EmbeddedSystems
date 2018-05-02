@@ -15,7 +15,7 @@ int main(){
 	//ADCSRA register
 
 	ADCSRA=ADCSRA & ~(1<<ADEN);//Analog comparator multiplexer enabled
-	ADCSRA=ADCSRA|(ACME<<1);//The ADC is switched off
+	ADCSRB=ADCSRB|(1<<ACME);//The ADC is switched off
 	ADCSRA=ADCSRA & ~(1<<ADATE);//Auto trigger disabled
 	ADCSRA=(ADCSRA | 1<<ADPS0 | 1<<ADPS1 ) & ~(1<<ADPS2);//The input clock to ADC is 8 times slower than the system clock
 
@@ -23,7 +23,9 @@ int main(){
 	ADCSRA=ADCSRA | (1<<ADSC);//Start conversion
 	
 	while(1){
-		
+		ADCSRB=ADCSRB & ~(1<<ACME);//The ADC is switched ON
+
+
 		while(((ADCSRA>>ADIF)&1)==0){//polling for the conversion to finish
 		}
 
